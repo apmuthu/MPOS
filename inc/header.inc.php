@@ -96,24 +96,24 @@ if ( $modal ) {
                 <a href="index.php" class="brand-logo">MPOS</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
-                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Verkaufen"
+                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Sales"
                            href="shop_form.php">
                             <i class="material-icons">shopping_cart</i>
                         </a>
                     </li>
                     <li>
-                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Artikel" href="articles.php">
+                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Item" href="articles.php">
                             <i class="material-icons">widgets</i>
                         </a>
                     </li>
                     <li>
-                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Kontostand"
+                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cash Balance"
                            href="money.php">
                             <i class="material-icons">attach_money</i>
                         </a>
                     </li>
                     <li>
-                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Einstellungen"
+                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Settings"
                            href="settings.php">
                             <i class="material-icons">settings</i>
                         </a>

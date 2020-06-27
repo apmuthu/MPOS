@@ -1,13 +1,9 @@
 <?php
-$site_title = "Startseite";
+$site_title = "Home";
 include 'inc/header.inc.php';
 ?>
-<h1 class="<?= $site_color_accent_text ?>">Herzlich Willkommen bei MPOS!</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1 class="<?= $site_color_accent_text ?>">Cordial Welcome to MPOS!</h1>
+<p>MPOS is a mobile centric Point of Sale application running on a PHP/MySQL enabled Web Server.</p>
 <?php
 include 'inc/footer.inc.php';
 ?>

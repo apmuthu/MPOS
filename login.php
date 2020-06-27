@@ -12,12 +12,12 @@ if ( isset( $_POST['email'] ) && isset( $_POST['passwort'] ) ) {
 	$result    = $statement->execute( array( 'email' => $email ) );
 	$user      = $statement->fetch();
 
-	//Überprüfung des Passworts
+	//Checking the password
 	if ( $user !== false && password_verify( $passwort, $user['passwort'] ) ) {
 		$_SESSION['userid'] = $user['id'];
 		$_SESSION['site'] = "mpos";
 
-		//Möchte der Nutzer angemeldet beleiben?
+		//Does the user want to stay logged in and be remembered for the session?
 		if ( isset( $_POST['angemeldet_bleiben'] ) ) {
 			$identifier    = random_string();
 			$securitytoken = random_string();
@@ -70,14 +70,14 @@ include( "inc/header.inc.php" );
 
             <div class="input-field col s12">
                 <input type="password" name="passwort" id="inputPassword" class="validate" required>
-                <label for="inputPassword">Passwort</label>
+                <label for="inputPassword">Password</label>
             </div>
 
             <p>
                 <label>
                     <input type="checkbox" value="remember-me" id="remember-me" name="angemeldet_bleiben" value="1"
                            checked="checked"/>
-                    <span>Angemeldet bleiben?</span>
+                    <span>Remain signed in?</span>
                 </label>
             </p>
 
