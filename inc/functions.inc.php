@@ -24,18 +24,18 @@ function check_user_basic() {
 		$securitytoken_row = $statement->fetch();
 
 		if ( sha1( $securitytoken ) !== $securitytoken_row['securitytoken'] ) {
-			//Vermutlich wurde der Security Token gestohlen
-			//Hier ggf. eine Warnung o.ä. anzeigen
+			//The security token was probably stolen
+			//If necessary, show a warning or alert here.
 
-		} else { //Token war korrekt
-			//Setze neuen Token
+		} else { //Token was correct
+			//Set new token
 			$neuer_securitytoken = random_string();
 			$insert              = $pdo->prepare( "UPDATE securitytokens SET securitytoken = :securitytoken WHERE identifier = :identifier" );
 			$insert->execute( array( 'securitytoken' => sha1( $neuer_securitytoken ), 'identifier' => $identifier ) );
-			setcookie( "identifier", $identifier, time() + ( 3600 * 24 * 365 ) ); //1 Jahr Gültigkeit
-			setcookie( "securitytoken", $neuer_securitytoken, time() + ( 3600 * 24 * 365 ) ); //1 Jahr Gültigkeit
+			setcookie( "identifier", $identifier, time() + ( 3600 * 24 * 365 ) ); //1 Year validity
+			setcookie( "securitytoken", $neuer_securitytoken, time() + ( 3600 * 24 * 365 ) ); //Valid for 1 year
 
-			//Logge den Benutzer ein
+			//Log in the user
 			$_SESSION['userid'] = $securitytoken_row['user_id'];
 		}
 	}
@@ -60,7 +60,7 @@ function check_user() {
 	if ( check_user_basic() != false && $_SESSION['site'] == "mpos" ) {
 		return check_user_basic();
 	} else {
-		$_SESSION['msg'] = "Bitte erst anmelden!";
+		$_SESSION['msg'] = "Please register first!";
 		die( header( "Location: index.php" ) );
 	}
 }

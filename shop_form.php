@@ -1,5 +1,5 @@
 <?php
-$site_title = "Verkauf";
+$site_title = "Sale";
 include 'inc/header.inc.php';
 $user = check_user();
 ?>
@@ -39,7 +39,7 @@ $user = check_user();
             });
             $("#cart tbody").append("<tr>" +
               "<th colspan='4'>" +
-              "Gesamt:" +
+              "Total:" +
               "</th>" +
               "<th>" +
               gpreis + "€" +
@@ -82,19 +82,19 @@ $user = check_user();
         }
     );
 </script>
-<h1 class="<?php echo $site_color_accent_text; ?>">Verkauf</h1>
+<h1 class="<?php echo $site_color_accent_text; ?>">Sale</h1>
 <div class="row">
     <div class="col s12 m6">
-        <p class="flow-text">Geben sie ein.</p>
+        <p class="flow-text">Enter.</p>
         <form id="shop-form" action="" method="post">
             <div class="row col s12">
                 <div class="input-field col s4 m3 l2">
                     <input name="quantity" type="text" id="quantity-in" autofocus>
-                    <label for="quantity">Menge</label>
+                    <label for="quantity">Quantity</label>
                 </div>
                 <div class="input-field col s8 m9 l10">
                     <input name="barcode" type="text" id="barcode-in">
-                    <label for="article">Artikelnummer</label>
+                    <label for="article">Item Number</label>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@ $user = check_user();
            class="btn <?php /*echo $site_color_accent; */ ?>">
 -->
             <button class="btn waves-effect waves-light <?=$site_color?> col s12" type="submit" name="action">
-                Hinzufügen
+                Add
                 <i class="material-icons right">add_shopping_cart</i>
             </button>
         </form>
@@ -113,22 +113,22 @@ $user = check_user();
         <table class="striped" id="cart">
             <thead>
             <tr>
-                <th>Menge</th>
+                <th>Quantity</th>
                 <th>Barcode</th>
-                <th>Artikelname</th>
-                <th>EPREIS</th>
-                <th>GPREIS</th>
+                <th>Item Name</th>
+                <th>Rate</th>
+                <th>Amount</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td colspan="5">
-                    Noch keine Artikel …
+                    No Items yet…
                 </td>
             </tr>
           </tbody>
         </table>
-        <a class="waves-effect waves-light btn <?=$site_color_accent?> col s12" href="pay.php"><i class="material-icons right">shopping_cart</i>Bezahlen</a>
+        <a class="waves-effect waves-light btn <?=$site_color_accent?> col s12" href="pay.php"><i class="material-icons right">shopping_cart</i>Pay</a>
     </div>
 </div>
 

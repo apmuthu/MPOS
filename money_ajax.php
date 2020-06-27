@@ -33,11 +33,11 @@ function give_success( $message ) {
 
 $result = false;
 if ( ! check_user() ) {
-	give_error( "Eine Anmeldung liegt nicht vor." );
+	give_error( "No registered logged in user" );
 }
 
 if ( empty( $_GET["action"] ) ) {
-	give_error( "Keine Aktion angegeben." );
+	give_error( "No action specified." );
 }
 
 if ( ! isset( $_SESSION["cart"] ) ) {
@@ -80,10 +80,10 @@ switch ( $action ) {
     $money_to_add = $_GET['money'];
     $userid = $_GET['user'];
     if (empty($money_to_add)) {
-      give_error("Keinen Betrag angegeben");
+      give_error("No amount specified");
     }
     if (empty($userid)) {
-      give_error("Keinen Nutzer angegeben");
+      give_error("No user specified");
     }
 
     $money_to_add = floatval($money_to_add);
@@ -102,17 +102,17 @@ switch ( $action ) {
 			'new_balance' => $new_balance,
 			'user'  => $userid
 		) );
-    give_success("Betrag hinzugefügt");
+    give_success("Amount added");
     break;
 
 	case 'delete_money':
     $money_to_add = $_GET['money'];
     $userid = $_GET['user'];
     if (empty($money_to_add)) {
-      give_error("Keine Differenz angegeben");
+      give_error("No difference specified");
     }
     if (empty($userid)) {
-      give_error("Keinen Nutzer angegeben");
+      give_error("No user specified");
     }
 
     $money_to_substract = floatval($money_to_add);
@@ -131,7 +131,7 @@ switch ( $action ) {
 			'new_balance' => $new_balance,
 			'user'  => $userid
 		) );
-    give_success("Betrag hinzugefügt");
+    give_success("Amount added");
     break;
   default:
     //code...

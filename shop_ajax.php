@@ -46,11 +46,11 @@ function get_article( $barcode ) {
 
 $result = false;
 if ( ! check_user() ) {
-	give_error( "Eine Anmeldung liegt nicht vor." );
+	give_error( "No registered user logged in" );
 }
 
 if ( empty( $_GET["action"] ) ) {
-	give_error( "Keine Aktion angegeben." );
+	give_error( "No action specified." );
 }
 
 if ( ! isset( $_SESSION["cart"] ) ) {
@@ -66,39 +66,39 @@ switch ( $action ) {
 		break;
 	case "add_to_cart":
 		if ( empty( $_GET["barcode"] ) ) {
-			give_error( "Es muss ein Barcode angegeben werden." );
+			give_error( "A barcode must be specified." );
 		}
 		if ( empty( $_GET["quantity"] ) ) {
-			give_error( "Es muss eine Menge angegeben werden." );
+			give_error( "Quantity has to be specified." );
 		}
 		$barcode  = $_GET["barcode"];
 		$quantity = $_GET["quantity"];
 
 		$article = get_article( $barcode );
 		if ( ! $article ) {
-			give_error( "Dieser Artikel existiert leider nicht." );
+			give_error( "Unfortunately this article does not exist." );
 		}
 
 		if ( ! is_numeric( $quantity ) || ! ( doubleval( $quantity ) > 0 ) ) {
-			give_error( "Die Menge muss ein positiver numerischer Wert sein." );
+			give_error( "The quantity must be a positive numerical value." );
 		}
 		$quantity = doubleval( $quantity );
 
 		$needed_quantity = $quantity;
 		$key             = array_search( $barcode, array_column( $_SESSION["cart"], "barcode" ) );
 		if ( $key !== false ) {
-			// Existiert bereits
+			// Already exists
 			$needed_quantity += $_SESSION["cart"][ $key ]["quantity"];
 		}
 
 		$available_quantity = $article["quantity"];
 
 		if ( ! ( $quantity <= $available_quantity ) ) {
-			give_error( "Die gewählte Menge ist leider nicht auf Lager. Auf Lager ist noch: " . $available_quantity . " Stück" );
+			give_error( "The selected quantity is unfortunately not in stock. Available stock:" . $available_quantity . " Stück" );
 		}
 
 		if ( $key === false ) {
-			//Existiert nicht
+			//Does not exist
 			$cart_object = array(
 				"barcode"  => $barcode,
 				"quantity" => $quantity,
@@ -108,10 +108,10 @@ switch ( $action ) {
 
 			array_push( $_SESSION["cart"], $cart_object );
 
-			give_success( "Der Artikel wurde erfolgreich hinzugefügt" );
+			give_success( "The Item was added successfully" );
 		} else {
 			$_SESSION["cart"][ $key ]["quantity"] += $quantity;
-			give_success( "Die Menge wurde erfolgreich zum bereits bestehenden Artikel hinzuaddiert." );
+			give_success( "The quantity was successfully added to the existing Item." );
 		}
 
 		break;
@@ -119,10 +119,10 @@ switch ( $action ) {
 		if ( isset( $_SESSION["cart"] ) ) {
 			unset( $_SESSION["cart"] );
 		}
-		give_success( "Der Warenkorb wurde geleert." );
+		give_success( "The shopping cart has been emptied." );
 		break;
 	default:
-		give_error( "Die angegebene Aktion existiert nicht." );
+		give_error( "The specified action does not exist." );
 }
 
 give_result();

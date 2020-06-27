@@ -1,5 +1,5 @@
 <?php
-$site_title = "Rechnung";
+$site_title = "Invoice";
 include 'inc/header.inc.php';
 $user = check_user();
 if (!$_SESSION['cart']) {

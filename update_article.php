@@ -6,35 +6,35 @@ function giveSucces($msg=''){
 }
 include 'inc/header.inc.php';
 if (empty($_GET['action'])) {
-  $_SESSION['msg'] = "Es ist ein Fehler aufgetreten. Bitte versuchen sie es erneut!";
+  $_SESSION['msg'] = "An error has occurred. Please try again!";
   header("Location:articles.php");
 }
 if (empty($_GET['article_id'])) {
-  $_SESSION['msg'] = "Es ist ein Fehler aufgetreten. Bitte versuchen sie es erneut!";
+  $_SESSION['msg'] = "An error has occurred. Please try again!";
   header("Location:articles.php");
 }
 $action = $_GET['action'];
 $article_id = $_GET['article_id'];
 switch ($action) {
   case 'update_article':
-  // TODO: MACHEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    giveSucces("Der Artikel wurde erfolgreich bearbeitet!");
+  // TODO: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    giveSucces("The Item has been successfully edited!");
     break;
 
   case 'delete_article':
     global $pdo;
     $statement = $pdo->prepare( "DELETE FROM `articles` WHERE `id` = $article_id");
 		$result    = $statement->execute();
-    giveSucces("Der Artikel wurde erfolgreich gelöscht!");
+    giveSucces("The Item was deleted successfully!");
     break;
 
   case 'update_quantity':
-  // TODO: MACHEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    giveSucces("Die Menge wurde erfolgreich hinzugefügt!");
+  // TODO: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    giveSucces("The amount has been added successfully!");
     break;
 
   default:
-    $_SESSION['msg'] = "Es ist ein Fehler aufgetreten. Bitte versuchen sie es erneut!";
+    $_SESSION['msg'] = "An error has occurred. Please try again!";
     header("Location:articles.php");
     break;
   }

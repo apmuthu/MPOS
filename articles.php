@@ -1,5 +1,5 @@
 <?php
-$site_title = "Produkte";
+$site_title = "Products / Items";
 include 'inc/header.inc.php';
 $user = check_user();
 
@@ -34,10 +34,10 @@ foreach ($pdo->query($sql) as $row) {
   echo '
     <div class="">
       <div class="card-panel article" style="background-color: '.$row['color'].'!important;">
-        <h6 class="white-text">Artikel '.$row['id'].': <i>'.$row['name'].'</i></h6>
-        <span class="white-text">Ausführung: '.$row['description'].'</span>
+        <h6 class="white-text">Item '.$row['id'].': <i>'.$row['name'].'</i></h6>
+        <span class="white-text">Description: '.$row['description'].'</span>
         <br>
-        <span class="white-text">Preis: '.$row['price'].'€</span>
+        <span class="white-text">Rate: '.$row['price'].'€</span>
         <br>
         <span class="white-text">Barcode: '.$row['barcode'].'</span>
         <div class="divider"></div>
@@ -57,50 +57,50 @@ foreach ($pdo->query($sql) as $row) {
     <div class="collection">
       <a href="#add-article" class="collection-item modal-trigger">
         <i class="material-icons green-text">add</i>
-        <span class="grey-text">Artikel hinzufügen</span>
+        <span class="grey-text">Add Item</span>
       </a>
       <a href="#!" class="collection-item">
         <i class="material-icons blue-text">receipt</i>
-        <span class="grey-text">Barcode erzeugen</span>
+        <span class="grey-text">Generate barcode</span>
       </a>
     </div>
   </div>
 </div>
 <div id="add-article" class="modal ">
     <div class="modal-content">
-      <h4>Artikel hinzufügen</h4>
-      <p>Füllen Sie alle Felder aus!</p>
+      <h4>Add Item</h4>
+      <p>Fill in all fields!</p>
       <div class="row">
         <form class="col s12" id="add-article" action="articles.php" method="post">
           <div class="row">
             <div class="input-field col s6">
               <input id="name" name="name" type="text" class="validate" required>
-              <label for="name">Name des Artikels</label>
+              <label for="name">Item Name</label>
             </div>
             <div class="input-field col s6">
               <input id="description" name="description" type="text" class="validate" required>
-              <label for="description">Ausführung des Artikels</label>
+              <label for="description">Item Description</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <input id="price" type="text" name="price" class="validate" required>
-              <label for="price">Preis des Artikels</label>
+              <label for="price">Unit Price</label>
             </div>
             <div class="input-field col s6">
               <input id="quantity" name="quantity" type="text" class="validate" required>
-              <label for="quantity">Anzahl des Artikels</label>
+              <label for="quantity">Quantity</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <input id="barcode" name="barcode" type="text" class="validate" required>
-              <label for="barcode">Barcode des Artikels</label>
+              <label for="barcode">Barcode of Item</label>
             </div>
           </div>
           <div class="row">
             <div class="input-fiel col s12 m3">
-              <label for="color-picker">Farbe auswählen:</label>
+              <label for="color-picker">Choose color:</label>
 	            <input type="color" value="#ff8a80" id="color-picker" name="color">
             </div>
           </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$site_title = "Bezahlung";
+$site_title = "Pay";
 include 'inc/header.inc.php';
 $user = check_user();
 if (!$_SESSION['cart']) {
@@ -10,7 +10,7 @@ if (!$_SESSION['cart']) {
 <script>
 function calculateChange(money_given) {
   var gpreis = <?=$_SESSION['gpreis']?>;
-  document.getElementById('change').value = "Rückgeld: " + (money_given - gpreis) + "€";
+  document.getElementById('change').value = "Change: " + (money_given - gpreis) + "€";
 }
   $(document).ready(function () {
     $('#bill').hide();
@@ -61,18 +61,18 @@ function calculateChange(money_given) {
       });
   });
 </script>
-<h1 class="<?=$site_color_accent_text?>">Bezahlung</h1>
-<p>Links sehen sie die Übersicht an gekauften Artikeln, rechts können sie kassieren.</p>
+<h1 class="<?=$site_color_accent_text?>">Pay</h1>
+<p>On the left you can see the overview of purchased items, on the right you can cash in.</p>
 <div class="row">
   <div class="col s12 m6">
     <table class="striped">
       <thead>
       <tr>
-          <th>Menge</th>
+          <th>Quantity</th>
           <th>Barcode</th>
-          <th>Artikelname</th>
-          <th>EPREIS</th>
-          <th>GPREIS</th>
+          <th>Item Name</th>
+          <th>Rate</th>
+          <th>Amount</th>
       </tr>
       </thead>
       <?php
@@ -99,7 +99,7 @@ function calculateChange(money_given) {
       }
       echo "<tr>" .
       "<th colspan='4'>" .
-      "Gesamt:" .
+      "Total:" .
       "</th>" .
       "<th>" .
       $gpreis . "€" .
@@ -113,22 +113,22 @@ function calculateChange(money_given) {
     <form method="post" action="print_bill.php" id="pay_form">
       <div class="input-field col s12">
         <select name="payment" id="payment" required>
-          <option value="" disabled selected>Zahlungsmethode auswählen</option>
-          <option value="cash" data-icon="icons/payment_options/money.svg" class="left">Bargeld</option>
-          <option value="credit" data-icon="icons/payment_options/credit_card.svg" class="left">Kartenzahlung</option>
-          <option value="gift" data-icon="icons/payment_options/card_giftcard.svg" class="left">Geschenkgutschein</option>
+          <option value="" disabled selected>Select a payment method</option>
+          <option value="cash" data-icon="icons/payment_options/money.svg" class="left">Cash</option>
+          <option value="credit" data-icon="icons/payment_options/credit_card.svg" class="left">Card payment</option>
+          <option value="gift" data-icon="icons/payment_options/card_giftcard.svg" class="left">Gift Voucher</option>
         </select>
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">attach_money</i>
-        <input id="cash_given" type="text" name="money" placeholder="Gegebenes Geld" required>
-        <!--<label for="cash_given">Gegebenes Geld</label>-->
+        <input id="cash_given" type="text" name="money" placeholder="Given money" required>
+        <!--<label for="cash_given">Given money</label>-->
       </div>
       <!-- Discount only in future, not now!-->
       <!--<div class="input-field col s12">
         <i class="material-icons prefix">stars</i>
         <input id="discount" type="text" name="discount" value="0%">
-        <label for="discount">Rabatt für ganzen Einkauf</label>
+        <label for="discount">Discount for whole purchase</label>
       </div>-->
       <div class="input-field col s12">
         <i class="material-icons prefix">settings_backup_restore</i>
@@ -137,10 +137,10 @@ function calculateChange(money_given) {
       <div class="col s12">
         <label>
           <input type="checkbox" name="paid" required id="paid"/>
-          <span>Bezahlung durchgeführt</span>
+          <span>Payment made</span>
         </label>
       </div>
-      <button type="submit" class="btn waves-effect waves-light <?=$site_color?> col s12" id="bill"><i class="material-icons right">print</i>Rechnung drucken</button>
+      <button type="submit" class="btn waves-effect waves-light <?=$site_color?> col s12" id="bill"><i class="material-icons right">print</i>Print invoice</button>
     </form>
   </div>
 </div>

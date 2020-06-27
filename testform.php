@@ -5,23 +5,23 @@
         <!--
         function clone_this(objButton) {
             /**
-             *  Das div, in welchem sich das erste input befindet, wird geclont
+             *  The div in which the first input is located is cloned
              **/
 
             tmpNode = objButton.form.elements[0].parentNode.cloneNode(true);
 
 
             /**
-             *  das geklonte div wird vor dem Button eingefügt
-             *  Syntax...Elternknoten.insertBefore(einzufügenderKnoten,KnotenVorDemEingefügtWerdenSoll);
+             *  the cloned div is inserted before the button
+             *  Syntax...parentNode.insertBefore(nodeToBeInserted,nodeBeforeInsertion);
              **/
 
             objButton.form.insertBefore(tmpNode, objButton);
 
 
-            /**  Den Wert des eingefügten inputs wieder löschen
-             * previousSibling ist der vorige Knoten eines Typs vor einem anderen Knoten...
-             * in diesem Fall das neue div vor dem Button....firstChild wieder das erste Kindelement darin...also das input
+            /**  Delete the value of the inserted input
+             * previousSibling is the previous node of one type before another node ...
+             * in this case the new div before the button .... firstChild again the first child element in it ... so the input
              **/
 
             objButton.previousSibling.firstChild.value = '';

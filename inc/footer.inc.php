@@ -13,10 +13,10 @@
                 <h5 class="white-text">Links</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3"
-                           href="https://www.php-einfach.de/experte/php-codebeispiele/loginscript/">Login system from Nils Reimers</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://next.materializecss.com">Framework Materialize</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/apmuthu/MPOS">Fork Project on GitHub</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/ZugBahnHof/MPOS">German version on GitHub</a></li>
+                           href="https://www.php-einfach.de/experte/php-codebeispiele/loginscript/" target="_blank">Login system from Nils Reimers</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://materializecss.com" target="_blank">Materialize Framework</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/apmuthu/MPOS" target="_blank">Fork Project on GitHub</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/ZugBahnHof/MPOS target="_blank"">German version on GitHub</a></li>
                 </ul>
             </div>
 
@@ -24,8 +24,9 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2018 by Julian Leucker<br>© 2020 by Ap.Muthu
+            © 2018 by Julian Leucker
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+			<br>© 2020 by Ap.Muthu
         </div>
     </div>
 </footer>

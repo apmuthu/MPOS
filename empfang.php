@@ -1,15 +1,15 @@
 <?php
 $site_title = "Rechnung";
 include 'inc/header.inc.php';
-echo "<h1 class=".$site_color_accent_text.">Rechnung</h1>";
+echo "<h1 class=".$site_color_accent_text.">Invoice</h1>";
 echo '
   <table class="striped">
     <thead>
-      <th>Anzahl</th>
-      <th>Artikelname</th>
-      <th>Artikelnummer</th>
-      <th>Einzelpreis</th>
-      <th>Gesamtpreis</th>
+      <th>Quantity</th>
+      <th>Item Name</th>
+      <th>Barcode</th>
+      <th>Rate</th>
+      <th>Amount</th>
     </thead>
     <tbody>';
 for ( $i = 0; $i < count( $_POST['Menge'] ); $i ++ ) {
@@ -33,6 +33,6 @@ echo '
     </tbody>
   </table>
   ';
-echo "<b>Zu zahlen:</b>";
+echo "<b>To pay:</b>";
 include 'inc/footer.inc.php';
 ?>

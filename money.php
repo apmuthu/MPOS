@@ -1,5 +1,5 @@
 <?php
-$site_title = "Geldfluss";
+$site_title = "Cash flow";
 include 'inc/header.inc.php';
 $user = check_user();
 if (isset($_POST['sum'])) {
@@ -49,7 +49,7 @@ if (isset($_POST['diff'])) {
 ?>
 <?php
 //############################################################################################################################
-// IDEA:  Tabelle nur kleiner machen und dann in mehrere Tabellen auf verschiedenen Seiten aufteilen (siehe auch https://materializecss.com/pagination.html)
+// IDEA:  Make table smaller, then split into several tables across pages (refer https://materializecss.com/pagination.html)
 //############################################################################################################################
 ?>
 <script>
@@ -108,18 +108,18 @@ $(document).ready(function () {
     <table class="highlight" id="money-table">
       <thead>
         <tr>
-          <th>Buchungs-ID</th>
-          <th>Änderung</th>
-          <th>Kontostand</th>
-          <th>geändert von</th>
-          <th>geändert am</th>
+          <th>Booking-ID</th>
+          <th>Changes</th>
+          <th>Amount Balance</th>
+          <th>Changed by</th>
+          <th>Changed on</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
           <td colspan="5">
-            Keine Zahlungen vorhanden!
+            No payments available!
           </td>
         </tr>
       </tbody>
@@ -127,22 +127,22 @@ $(document).ready(function () {
   </div>
   <div class="col s4">
     <div class="card grey lighten-3 card_padding">
-      <h6 class="<?=$site_color_text?> center">DERZEITIGER KONTOSTAND:</h6>
+      <h6 class="<?=$site_color_text?> center">CURRENT ACCOUNT:</h6>
       <h1 class="<?=$site_color_text?> center" id="currBalance"></h1>
       <a class="btn-floating halfway-fab waves-effect waves-light <?=$site_color_accent?> btn-large" id="reload"><i class="material-icons">refresh</i></a>
     </div>
     <div class="collection">
         <a href="#add_money" class="collection-item modal-trigger">
           <i class="material-icons red-text">add</i>
-          <span class="grey-text">Geld einzahlen</span>
+          <span class="grey-text">Deposit money</span>
         </a>
         <a href="#substract_money" class="collection-item modal-trigger">
           <i class="material-icons blue-text">remove</i>
-          <span class="grey-text">Geld auszahlen</span>
+          <span class="grey-text">Pay out money</span>
         </a>
         <a href="#!" class="collection-item">
           <i class="material-icons green-text">print</i>
-          <span class="grey-text">Liste drucken</span>
+          <span class="grey-text">Print List</span>
         </a>
     </div>
   </div>
@@ -151,38 +151,38 @@ $(document).ready(function () {
 <!-- MODALS-->
 <div id="add_money" class="modal ">
     <div class="modal-content">
-      <h4>Geld einzahlen</h4>
-      <p>Füllen Sie alle Felder aus!</p>
+      <h4>Deposit money</h4>
+      <p>Fill in all fields!</p>
       <div class="row">
         <form class="col s12" id="add-article" action="money.php" method="post">
           <div class="row">
             <div class="input-field col s6">
               <input id="sum" name="sum" type="text" class="validate" required>
-              <label for="sum">Summe</label>
+              <label for="sum">Total</label>
             </div>
           </div>
           <div class="divider"></div>
           <br>
-          <button type="submit" class="waves-effect waves-light green btn-flat col s12">Einzahlen</button>
+          <button type="submit" class="waves-effect waves-light green btn-flat col s12">Deposit</button>
         </form>
       </div>
     </div>
   </div>
   <div id="substract_money" class="modal ">
       <div class="modal-content">
-        <h4>Geld auszahlen</h4>
-        <p>Füllen Sie alle Felder aus!</p>
+        <h4>Pay out money</h4>
+        <p>Fill in all fields!</p>
         <div class="row">
           <form class="col s12" id="add-article" action="money.php" method="post">
             <div class="row">
               <div class="input-field col s6">
                 <input id="diff" name="diff" type="text" class="validate" required>
-                <label for="sum">Geld</label>
+                <label for="sum">Money</label>
               </div>
             </div>
             <div class="divider"></div>
             <br>
-            <button type="submit" class="waves-effect waves-light orange btn-flat col s12">Auszahlen</button>
+            <button type="submit" class="waves-effect waves-light orange btn-flat col s12">Pay off</button>
           </form>
         </div>
       </div>

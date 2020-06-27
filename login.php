@@ -65,7 +65,7 @@ include( "inc/header.inc.php" );
             <div class="input-field col s12">
                 <input type="email" name="email" id="inputEmail" class="validate" value="<?php echo $email_value; ?>"
                        required autofocus>
-                <label for="inputEmail">E-Mail</label>
+                <label for="inputEmail">EMail Address</label>
             </div>
 
             <div class="input-field col s12">
